@@ -32,7 +32,6 @@ header h1{
   color:#d4af37;
   font-size:38px;
   font-weight:900;
-  letter-spacing:1px;
 }
 header p{
   margin-top:8px;
@@ -41,9 +40,28 @@ header p{
 }
 
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   padding:30px 20px;
+}
+
+/* IMAGE GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-bottom:40px;
+}
+.gallery img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border:2px solid #d4af37;
+  border-radius:6px;
+  transition:.3s;
+}
+.gallery img:hover{
+  transform:scale(1.04);
 }
 
 /* FORM */
@@ -114,7 +132,6 @@ footer{
 
 <body>
 
-<!-- TOP IMAGE -->
 <div class="hero"></div>
 
 <header>
@@ -123,6 +140,14 @@ footer{
 </header>
 
 <div class="container">
+
+<!-- CAR IMAGES -->
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1549924231-f129b911e442">
+  <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2">
+  <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+  <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068">
+</div>
 
 <div class="form-box">
 <form onsubmit="sendToWhatsApp(); return false;">
@@ -153,16 +178,16 @@ footer{
 </select>
 
 <label>Specifications</label>
-<textarea id="specs" placeholder="Engine type, mileage, transmission, condition, etc"></textarea>
+<textarea id="specs"></textarea>
 
 <label>Customer Name</label>
-<input id="name" placeholder="Full Name">
+<input id="name">
 
 <label>Email</label>
-<input id="email" type="email" placeholder="example@email.com">
+<input id="email" type="email">
 
 <label>Customer Phone Number</label>
-<input id="phone" placeholder="Phone Number">
+<input id="phone">
 
 <button>SUBMIT & CHAT ON WHATSAPP</button>
 
@@ -187,23 +212,19 @@ function getGreeting(){
 }
 
 function openWhatsApp(){
-  const msg =
-    getGreeting()+" WorldBank Autos,%0A%0A"+
-    "I saw your services on your website and I would like assistance.";
+  const msg=getGreeting()+" WorldBank Autos,%0A%0AI saw your cars and I am interested.";
   window.open("https://wa.me/2347033932754?text="+msg,"_blank");
 }
 
 function sendToWhatsApp(){
-  const msg =
-    getGreeting()+" WorldBank Autos,%0A%0A"+
-    "Car Name: "+car.value+"%0A"+
-    "Car Model: "+model.value+"%0A"+
-    "Car Color: "+color.value+"%0A"+
-    "Specifications: "+specs.value+"%0A%0A"+
-    "Customer Name: "+name.value+"%0A"+
-    "Email: "+email.value+"%0A"+
-    "Phone: "+phone.value+"%0A%0A"+
-    "Sent from WorldBank Autos website.";
+  const msg=getGreeting()+" WorldBank Autos,%0A%0A"+
+  "Car Name: "+car.value+"%0A"+
+  "Car Model: "+model.value+"%0A"+
+  "Car Color: "+color.value+"%0A"+
+  "Specs: "+specs.value+"%0A%0A"+
+  "Name: "+name.value+"%0A"+
+  "Email: "+email.value+"%0A"+
+  "Phone: "+phone.value;
   window.open("https://wa.me/2347033932754?text="+msg,"_blank");
 }
 </script>
