@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorldBank Autos</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#0b0b0b;
+  color:#f5f5f5;
+}
+
+header{
+  background:#000;
+  padding:30px 20px;
+  text-align:center;
+  border-bottom:3px solid #d4af37;
+}
+header h1{
+  margin:0;
+  color:#d4af37;
+  font-size:36px;
+  font-weight:900;
+}
+header p{
+  margin-top:8px;
+  color:#cfcfcf;
+  font-size:18px;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.form-box{
+  border:1px solid rgba(212,175,55,.35);
+  padding:30px;
+  background:#050505;
+}
+
+label{
+  display:block;
+  margin-top:15px;
+  font-weight:600;
+}
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  background:#0b0b0b;
+  border:1px solid #333;
+  color:#fff;
+}
+textarea{
+  min-height:90px;
+}
+
+button{
+  width:100%;
+  margin-top:25px;
+  padding:16px;
+  background:linear-gradient(90deg,#d4af37,#ffd966);
+  border:none;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.whatsapp-btn,.call-btn{
+  position:fixed;
+  right:18px;
+  padding:14px 18px;
+  border-radius:40px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  z-index:999;
+}
+.whatsapp-btn{
+  bottom:90px;
+  background:#25d366;
+}
+.call-btn{
+  bottom:30px;
+  background:#2563eb;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:#aaa;
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>WorldBank Autos</h1>
+  <p>We deal on all kinds of cars</p>
+</header>
+
+<div class="container">
+
+<div class="form-box">
+<form onsubmit="sendToWhatsApp(); return false;">
+
+<label>Car Name</label>
+<select id="car">
+  <option>Toyota</option>
+  <option>Lexus</option>
+  <option>Mercedes-Benz</option>
+  <option>BMW</option>
+  <option>Honda</option>
+  <option>Hyundai</option>
+  <option>Ford</option>
+  <option>Other</option>
+</select>
+
+<label>Car Model</label>
+<input id="model" placeholder="e.g Camry 2021, GLK 350">
+
+<label>Car Color</label>
+<select id="color">
+  <option>Black</option>
+  <option>White</option>
+  <option>Silver</option>
+  <option>Red</option>
+  <option>Blue</option>
+  <option>Other</option>
+</select>
+
+<label>Specifications</label>
+<textarea id="specs" placeholder="Engine type, mileage, transmission, condition, etc"></textarea>
+
+<label>Customer Name</label>
+<input id="name" placeholder="Full Name">
+
+<label>Email</label>
+<input id="email" type="email" placeholder="example@email.com">
+
+<label>Customer Phone Number</label>
+<input id="phone" placeholder="Phone Number">
+
+<button>SUBMIT & CHAT ON WHATSAPP</button>
+
+</form>
+</div>
+
+</div>
+
+<footer>
+© 2026 WorldBank Autos
+</footer>
+
+<a class="whatsapp-btn" href="#" onclick="openWhatsApp()">WhatsApp</a>
+<a class="call-btn" href="tel:07033932754">Call</a>
+
+<script>
+function getGreeting(){
+  const h=new Date().getHours();
+  if(h<12) return "Good morning";
+  if(h<18) return "Good afternoon";
+  return "Good evening";
+}
+
+function openWhatsApp(){
+  const msg =
+    getGreeting()+" WorldBank Autos,%0A%0A"+
+    "I am interested in buying a car.";
+  window.open("https://wa.me/2347033932754?text="+msg,"_blank");
+}
+
+function sendToWhatsApp(){
+  const msg =
+    getGreeting()+" WorldBank Autos,%0A%0A"+
+    "Car Name: "+car.value+"%0A"+
+    "Car Model: "+model.value+"%0A"+
+    "Car Color: "+color.value+"%0A"+
+    "Specifications: "+specs.value+"%0A%0A"+
+    "Customer Name: "+name.value+"%0A"+
+    "Email: "+email.value+"%0A"+
+    "Phone: "+phone.value;
+  window.open("https://wa.me/2347033932754?text="+msg,"_blank");
+}
+</script>
+
+</body>
+</html>
