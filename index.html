@@ -13,12 +13,25 @@ body{
   color:#f5f5f5;
 }
 
-/* HERO IMAGE */
-.hero{
-  width:100%;
-  height:260px;
-  background:url('https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/8bf4dc759849951d66ba0f007fc969731e8fd3ac/1772212453745.png') center center / cover no-repeat;
+/* TOP MOVING IMAGES */
+.top-slider{
+  overflow:hidden;
+  background:#000;
   border-bottom:4px solid #d4af37;
+}
+.slider-track{
+  display:flex;
+  width:200%;
+  animation: moveLR 10s ease-in-out infinite alternate;
+}
+.slider-track img{
+  width:50%;
+  height:260px;
+  object-fit:cover;
+}
+@keyframes moveLR{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
 }
 
 /* HEADER */
@@ -45,23 +58,23 @@ header p{
   padding:30px 20px;
 }
 
-/* IMAGE GALLERY */
+/* IMAGE GALLERY 2 BY 2 */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
   margin-bottom:40px;
 }
 .gallery img{
   width:100%;
-  height:200px;
+  height:230px;
   object-fit:cover;
   border:2px solid #d4af37;
   border-radius:6px;
-  transition:.3s;
 }
-.gallery img:hover{
-  transform:scale(1.04);
+@media(max-width:700px){
+  .gallery{grid-template-columns:1fr;}
+  .slider-track img{height:180px;}
 }
 
 /* FORM */
@@ -70,13 +83,12 @@ header p{
   padding:30px;
   background:#050505;
 }
-
 label{
   display:block;
   margin-top:15px;
   font-weight:600;
 }
-input, select, textarea{
+input,select,textarea{
   width:100%;
   padding:12px;
   margin-top:6px;
@@ -84,10 +96,7 @@ input, select, textarea{
   border:1px solid #333;
   color:#fff;
 }
-textarea{
-  min-height:90px;
-}
-
+textarea{min-height:90px;}
 button{
   width:100%;
   margin-top:25px;
@@ -110,14 +119,8 @@ button{
   text-decoration:none;
   z-index:999;
 }
-.whatsapp-btn{
-  bottom:90px;
-  background:#25d366;
-}
-.call-btn{
-  bottom:30px;
-  background:#2563eb;
-}
+.whatsapp-btn{bottom:90px;background:#25d366;}
+.call-btn{bottom:30px;background:#2563eb;}
 
 /* FOOTER */
 footer{
@@ -132,7 +135,13 @@ footer{
 
 <body>
 
-<div class="hero"></div>
+<!-- TWO MOVING IMAGES AT TOP -->
+<div class="top-slider">
+  <div class="slider-track">
+    <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/Buy-A-Car-And-Pay-In-Monthly-Installment-Guide-In-Nigeria.jpg">
+    <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/IWwdZBJV9SES1lygnq28-j5wdJ0.jpg">
+  </div>
+</div>
 
 <header>
   <h1>WorldBank Autos</h1>
@@ -141,64 +150,33 @@ footer{
 
 <div class="container">
 
-<!-- CAR IMAGES -->
+<!-- IMAGE GALLERY -->
 <div class="gallery">
-  <img src="https://images.unsplash.com/photo-1549924231-f129b911e442">
-  <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2">
-  <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-  <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068">
+  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/KEjPt53f-HRWVXd-tTpfc1SW2xg.jpg">
+  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(10).jpeg">
+  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(11).jpeg">
+  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(12).jpeg">
+  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(13).jpeg">
+  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/used-cars-on-sale-1-e1626789515973.jpeg">
 </div>
 
 <div class="form-box">
-<form onsubmit="sendToWhatsApp(); return false;">
-
+<form onsubmit="sendToWhatsApp();return false;">
 <label>Car Name</label>
-<select id="car">
-  <option>Toyota</option>
-  <option>Lexus</option>
-  <option>Mercedes-Benz</option>
-  <option>BMW</option>
-  <option>Honda</option>
-  <option>Hyundai</option>
-  <option>Ford</option>
-  <option>Other</option>
-</select>
-
-<label>Car Model</label>
-<input id="model" placeholder="e.g Camry 2021, GLK 350">
-
-<label>Car Color</label>
-<select id="color">
-  <option>Black</option>
-  <option>White</option>
-  <option>Silver</option>
-  <option>Red</option>
-  <option>Blue</option>
-  <option>Other</option>
-</select>
-
-<label>Specifications</label>
-<textarea id="specs"></textarea>
-
-<label>Customer Name</label>
-<input id="name">
-
-<label>Email</label>
-<input id="email" type="email">
-
-<label>Customer Phone Number</label>
-<input id="phone">
-
+<select id="car"><option>Toyota</option><option>Lexus</option><option>Mercedes-Benz</option><option>BMW</option></select>
+<label>Car Model</label><input id="model">
+<label>Car Color</label><select id="color"><option>Black</option><option>White</option></select>
+<label>Specifications</label><textarea id="specs"></textarea>
+<label>Customer Name</label><input id="name">
+<label>Email</label><input id="email" type="email">
+<label>Phone</label><input id="phone">
 <button>SUBMIT & CHAT ON WHATSAPP</button>
-
 </form>
 </div>
 
 </div>
 
-<footer>
-© 2026 WorldBank Autos
-</footer>
+<footer>© 2026 WorldBank Autos</footer>
 
 <a class="whatsapp-btn" href="#" onclick="openWhatsApp()">WhatsApp</a>
 <a class="call-btn" href="tel:07033932754">Call</a>
@@ -206,24 +184,19 @@ footer{
 <script>
 function getGreeting(){
   const h=new Date().getHours();
-  if(h<12) return "Good morning";
-  if(h<18) return "Good afternoon";
-  return "Good evening";
+  if(h<12)return"Good morning";
+  if(h<18)return"Good afternoon";
+  return"Good evening";
 }
-
 function openWhatsApp(){
-  const msg=getGreeting()+" WorldBank Autos,%0A%0AI saw your cars and I am interested.";
-  window.open("https://wa.me/2347033932754?text="+msg,"_blank");
+  window.open("https://wa.me/2347033932754?text="+getGreeting()+" WorldBank Autos, I am interested.","_blank");
 }
-
 function sendToWhatsApp(){
-  const msg=getGreeting()+" WorldBank Autos,%0A%0A"+
-  "Car Name: "+car.value+"%0A"+
-  "Car Model: "+model.value+"%0A"+
-  "Car Color: "+color.value+"%0A"+
-  "Specs: "+specs.value+"%0A%0A"+
+  const msg=getGreeting()+" WorldBank Autos%0A"+
+  "Car: "+car.value+"%0A"+
+  "Model: "+model.value+"%0A"+
+  "Color: "+color.value+"%0A"+
   "Name: "+name.value+"%0A"+
-  "Email: "+email.value+"%0A"+
   "Phone: "+phone.value;
   window.open("https://wa.me/2347033932754?text="+msg,"_blank");
 }
