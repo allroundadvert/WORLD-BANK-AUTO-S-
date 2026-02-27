@@ -26,12 +26,20 @@ body{
 }
 .slider-track img{
   width:50%;
-  height:260px;
+  height:220px;
   object-fit:cover;
 }
 @keyframes moveLR{
   from{transform:translateX(0);}
   to{transform:translateX(-50%);}
+}
+
+/* ORIGINAL HERO IMAGE */
+.hero{
+  width:100%;
+  height:260px;
+  background:url('https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/8bf4dc759849951d66ba0f007fc969731e8fd3ac/1772212453745.png') center / cover no-repeat;
+  border-bottom:4px solid #d4af37;
 }
 
 /* HEADER */
@@ -58,7 +66,7 @@ header p{
   padding:30px 20px;
 }
 
-/* IMAGE GALLERY 2 BY 2 */
+/* IMAGE GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -74,7 +82,7 @@ header p{
 }
 @media(max-width:700px){
   .gallery{grid-template-columns:1fr;}
-  .slider-track img{height:180px;}
+  .slider-track img{height:170px;}
 }
 
 /* FORM */
@@ -135,13 +143,16 @@ footer{
 
 <body>
 
-<!-- TWO MOVING IMAGES AT TOP -->
+<!-- TWO MOVING IMAGES -->
 <div class="top-slider">
   <div class="slider-track">
     <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/Buy-A-Car-And-Pay-In-Monthly-Installment-Guide-In-Nigeria.jpg">
     <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/IWwdZBJV9SES1lygnq28-j5wdJ0.jpg">
   </div>
 </div>
+
+<!-- ORIGINAL TOP IMAGE (RESTORED) -->
+<div class="hero"></div>
 
 <header>
   <h1>WorldBank Autos</h1>
@@ -156,19 +167,16 @@ footer{
   <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(10).jpeg">
   <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(11).jpeg">
   <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(12).jpeg">
-  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/images%20(13).jpeg">
-  <img src="https://raw.githubusercontent.com/allroundadvert/WORLD-BANK-AUTO-S-/09d4eb331b45cd075aa3fc90932eb625bf3e8443/used-cars-on-sale-1-e1626789515973.jpeg">
 </div>
 
 <div class="form-box">
 <form onsubmit="sendToWhatsApp();return false;">
 <label>Car Name</label>
-<select id="car"><option>Toyota</option><option>Lexus</option><option>Mercedes-Benz</option><option>BMW</option></select>
+<select id="car"><option>Toyota</option><option>Lexus</option></select>
 <label>Car Model</label><input id="model">
 <label>Car Color</label><select id="color"><option>Black</option><option>White</option></select>
 <label>Specifications</label><textarea id="specs"></textarea>
-<label>Customer Name</label><input id="name">
-<label>Email</label><input id="email" type="email">
+<label>Name</label><input id="name">
 <label>Phone</label><input id="phone">
 <button>SUBMIT & CHAT ON WHATSAPP</button>
 </form>
@@ -195,7 +203,6 @@ function sendToWhatsApp(){
   const msg=getGreeting()+" WorldBank Autos%0A"+
   "Car: "+car.value+"%0A"+
   "Model: "+model.value+"%0A"+
-  "Color: "+color.value+"%0A"+
   "Name: "+name.value+"%0A"+
   "Phone: "+phone.value;
   window.open("https://wa.me/2347033932754?text="+msg,"_blank");
